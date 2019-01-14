@@ -1,6 +1,15 @@
-export const simpleAction = () => dispatch => {
-    dispatch({
-        type: 'SIMPLE_ACTION',
-        payload: 'result_of_simple_action'
-    })
+import { timeout } from "q";
+
+export const selectPostAction = id => ({
+    type: 'SELECT_POST',
+    payload: id,
+})
+
+export const removePostAction = (id) => dispatch => {
+    setTimeout(() => {
+        dispatch({
+            type: 'REMOVE_POST',
+            payload: id,
+        })
+    }, 1000)
 }
