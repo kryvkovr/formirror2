@@ -40,19 +40,31 @@ class App extends Component {
     return (
       <div style={styles.mainContainer}>
         <header style={styles.container}>
-          Hello world
+          Available script
         </header>
-        <button onClick={this.simpleAction}>Test redux action</button>
 
-        <h1>All posts</h1>
-        <div style={styles.allPosts}>
-          {this.renderAllPosts(this.props.allPosts)}
+        <div style={styles.textContainer}>
+          <div style={styles.leftContainer}>
+
+            <h1>All posts</h1>
+            <div style={styles.allPosts}>
+              {this.renderAllPosts(this.props.allPosts)}
+            </div>
+
+            <h1>Selected posts</h1>
+            <div style={styles.allPosts}>
+              {this.renderSelectedPosts(this.props.selectedPosts)}
+            </div>
+          </div>
+
+          <div style={styles.rightContainer}>
+            Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+            totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt,
+            explicabo. Nemo enim ipsam voluptatem, quia voluptas sit,
+          </div>
         </div>
 
-        <h1>Selected posts</h1>
-        <div style={styles.allPosts}>
-          {this.renderSelectedPosts(this.props.selectedPosts)}
-        </div>
+
 
       </div>
     );
@@ -90,9 +102,25 @@ const styles = {
     position: 'absolute',
     right: 10,
     top: 10,
-    backgroundColor: 'red',
     width: 40,
     height: 40,
+  },
+  textContainer: {
+    fontSize: 20,
+    display: 'flex',
+    paddingBottom: 30,
+  },
+  leftContainer: {
+    flex: 3,
+    // float: 'left',
+    // width: '30%',
+    backgroundColor: '#888',
+  },
+  rightContainer: {
+    flex: 2,
+    // float: 'left',
+    // width: '70%',
+    backgroundColor: '#777',
   }
 }
 
