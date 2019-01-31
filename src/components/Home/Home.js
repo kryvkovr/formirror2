@@ -1,16 +1,42 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
-import { Jumbotron, Button, Grid, Row, Col, Image } from 'react-bootstrap';
+import { Jumbotron, Button, Container, Row, Col, Image } from 'react-bootstrap';
 import './Home.css';
 
 class Home extends Component {
-
   render() {
+
     return (
-      <div className="container">
-        HOME
-      </div>
+
+      <Container>
+        <Row>
+          <Col>
+            <Jumbotron>
+              <h2> WElcome to code life</h2>
+              <p>How to buikd site with react router and bootstrap</p>
+            </Jumbotron>
+            <Link to='/about'>
+              <Button variant="success">About</Button>
+            </Link>
+          </Col>
+        </Row>
+
+
+
+        <Jumbotron>
+          <h2> WElcome to code life</h2>
+          <p>How to buikd site with react router and bootstrap</p>
+        </Jumbotron>
+        <Link to='/about'>
+          <Button variant="success">About</Button>
+        </Link>
+
+
+
+      </Container>
+
     );
   }
 }
@@ -20,14 +46,11 @@ class Home extends Component {
 
 
 const mapToProps = state => ({
-  // allPosts: getPostsSelector(state),
-  // selectedPosts: getSelectedPostsSelector(state),
+
 })
 
 
 const mapDispatchToProps = {
-  // selectPostAction,
-  // removePostAction,
 }
 
 export default connect(mapToProps, mapDispatchToProps)(Home);

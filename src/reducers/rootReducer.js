@@ -6,8 +6,8 @@ import selectedPostsReducer from './selectedPostsReducer';
 
 
 export default (history) => combineReducers({
-    router: connectRouter(history),
-    postsReducer,
-    selectedPostsReducer,
+  router: connectRouter(history),
+  postsReducer,
+  selectedPostsReducer,
 })
 

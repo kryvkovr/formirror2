@@ -5,15 +5,17 @@ import { ConnectedRouter } from 'connected-react-router'
 import { history } from './store'
 
 import Home from './components/Home/Home';
-import Navbar from './components/Navbar/Navbar';
+import Navigation from './components/Navigation/Navigation';
 import News from './components/News/News';
+import About from './components/About/About';
 
 const App = () => (
   <ConnectedRouter history={history}>
     <div>
+      <Navigation />
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route path="/navbar" component={Navbar} />
+        <Route path="/about" component={About} />
         <Route path="/news" component={News} />
       </Switch>
     </div>
