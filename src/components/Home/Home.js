@@ -9,30 +9,40 @@ class Home extends Component {
   render() {
 
     return (
-
       <Container>
+        {/* Jumbtron */}
         <Row>
           <Col>
             <Jumbotron>
               <h2> WElcome to code life</h2>
               <p>How to buikd site with react router and bootstrap</p>
+              <Link to='/about'>
+                <Button >About</Button>
+              </Link>
             </Jumbotron>
-            <Link to='/about'>
-              <Button variant="success">About</Button>
-            </Link>
           </Col>
         </Row>
 
+        {/* main content */}
+        <Row>
+          <Col xs={12} sm={4} className="person-wrapper">
+            <Image src="assets/person-girl-flat.png" circle className="profile-pic" />
+            <h3>Frank</h3>
+            <p>Thats acroolet threee. We will send him to wathington</p>
+          </Col>
+          <Col xs={12} sm={4} className="person-wrapper">
+            <Image src="assets/person-girl-flat.png" circle className="profile-pic" />
+            <h3>John</h3>
+            <p>Thats acroolet threee. We will send him to wathington</p>
+          </Col>
+          <Col xs={12} sm={4} className="person-wrapper">
+            <Image src="assets/person-girl-flat.png" circle className="profile-pic" />
+            <h3>Debbie</h3>
+            <p>Thats acroolet threee. We will send him to wathington</p>
+          </Col>
 
 
-        <Jumbotron>
-          <h2> WElcome to code life</h2>
-          <p>How to buikd site with react router and bootstrap</p>
-        </Jumbotron>
-        <Link to='/about'>
-          <Button variant="success">About</Button>
-        </Link>
-
+        </Row>
 
 
       </Container>
