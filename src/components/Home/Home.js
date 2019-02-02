@@ -6,8 +6,12 @@ import { Jumbotron, Button, Container, Row, Col, Image } from 'react-bootstrap';
 import './Home.css';
 
 class Home extends Component {
-  render() {
+  constructor() {
+    super();
+    this.state = {};
+  }
 
+  render() {
     return (
       <Container>
         {/* Jumbtron */}
@@ -16,7 +20,7 @@ class Home extends Component {
             <Jumbotron>
               <h2> WElcome to code life</h2>
               <p>How to buikd site with react router and bootstrap</p>
-              <Link to='/about'>
+              <Link to="/about">
                 <Button >About</Button>
               </Link>
             </Jumbotron>
@@ -40,20 +44,12 @@ class Home extends Component {
             <h3>Debbie</h3>
             <p>Thats acroolet threee. We will send him to wathington</p>
           </Col>
-
-
         </Row>
-
-
       </Container>
 
     );
   }
 }
-
-
-
-
 
 const mapToProps = state => ({
 
