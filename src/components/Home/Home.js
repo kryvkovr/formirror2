@@ -12,6 +12,7 @@ class Home extends Component {
   }
 
   render() {
+    console.log(process.env.REACT_APP_API_URL);
     return (
       <Container>
         {/* Jumbtron */}
