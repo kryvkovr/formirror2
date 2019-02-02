@@ -21,7 +21,7 @@ class Home extends Component {
               <h2> WElcome to code life</h2>
               <p>How to buikd site with react router and bootstrap</p>
               <Link to="/about">
-                <Button >About</Button>
+                <Button>About</Button>
               </Link>
             </Jumbotron>
           </Col>
@@ -53,10 +53,10 @@ class Home extends Component {
 
 const mapToProps = state => ({
 
-})
+});
 
 
 const mapDispatchToProps = {
-}
+};
 
 export default connect(mapToProps, mapDispatchToProps)(Home);

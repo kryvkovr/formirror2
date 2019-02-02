@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
-import { Provider } from 'react-redux'
-import { Route, Switch } from 'react-router' // react-router v4
-import { ConnectedRouter } from 'connected-react-router'
-import { history } from './store'
+import React from 'react';
+import { Route, Switch } from 'react-router'; // react-router v4
+import { ConnectedRouter } from 'connected-react-router';
+import { history } from './store';
 
 import Home from './components/Home/Home';
 import Navigation from './components/Navigation/Navigation';

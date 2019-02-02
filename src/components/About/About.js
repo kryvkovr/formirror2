@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Container, Row, Col, Image } from 'react-bootstrap';
-import { selectPostAction, removePostAction } from '../../actions/simpleAction'
+import { selectPostAction, removePostAction } from '../../actions/simpleAction';
 import { getPostsSelector, getSelectedPostsSelector } from '../../selectors/selectedPosts';
 
 import './About.css';
 
 class About extends Component {
-
   constructor() {
     super();
     this.state = {};
@@ -65,7 +64,7 @@ const styles = {
     // width: '50%',
 
 
-  }
-}
+  },
+};
 
 export default connect(mapToProps, mapDispatchToProps)(About);

@@ -24,17 +24,17 @@ const initialState = {
       id: 6,
       post: 'Maybe they were $input something...',
     },
-  ]
-}
+  ],
+};
 
 
 export default (state = initialState, action) => {
   switch (action.type) {
     case 'SIMPLE_ACTION':
       return {
-        result: action.payload
-      }
+        result: action.payload,
+      };
     default:
-      return state
+      return state;
   }
-}
+};
