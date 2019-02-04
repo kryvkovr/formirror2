@@ -10,17 +10,18 @@ class Login extends Component {
   constructor() {
     super();
     this.state = {
-      data: {
-        email: 'hello',
-        password: '',
-      },
+      email: '',
+      password: '',
+
       loading: false,
       errors: {},
     };
   };
 
   onChange = (e) => {
-    console.log(e);
+    this.setState({
+      email: e.target.value;
+    })
   }
 
   render() {
@@ -32,7 +33,7 @@ class Login extends Component {
             <Form.Control
               type="email"
               placeholder="Enter email"
-              value={this.state.data.email}
+              value={this.state.email}
               onChange={this.onChange}
             />
             <Form.Text className="text-muted">
