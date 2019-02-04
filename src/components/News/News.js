@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Button } from 'react-bootstrap';
 import { selectPostAction, removePostAction } from '../../actions/simpleAction';
 import { getPostsSelector, getSelectedPostsSelector } from '../../selectors/selectedPosts';
 
 
 class News extends Component {
+  constructor() {
+    super();
+    this.state = { page: 'news' };
+  }
+
   render() {
     return (
       <div className="container">
-        NEWS
+        NEWS {this.state.page}
       </div>
     );
   }

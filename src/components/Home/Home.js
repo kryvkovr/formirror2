@@ -8,7 +8,7 @@ import './Home.css';
 class Home extends Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = { page: 'home' };
   }
 
   render() {
@@ -20,7 +20,7 @@ class Home extends Component {
         <Row>
           <Col>
             <Jumbotron>
-              <h2> WElcome to code life</h2>
+              <h2> WElcome to {this.state.page}</h2>
               <p>How to buikd site with react router and bootstrap</p>
               <Link to="/about">
                 <Button>About</Button>

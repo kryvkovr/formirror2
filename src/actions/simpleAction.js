@@ -5,11 +5,11 @@ export const selectPostAction = id => ({
   payload: id,
 });
 
-export const removePostAction = (id) => dispatch => {
+export const removePostAction = id => (dispatch) => {
   setTimeout(() => {
     dispatch({
       type: 'REMOVE_POST',
       payload: id,
-    })
-  }, 1000)
-}
+    });
+  }, 1000);
+};
