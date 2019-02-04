@@ -32,7 +32,7 @@ class Home extends Component {
           </Row>
 
           {/* main content */}
-          <Row>
+          {/* <Row>
             <Col xs={12} sm={4} className="person-wrapper">
               <Image src="assets/person-girl-flat.png" circle className="profile-pic" />
               <h3>Frank</h3>
@@ -48,7 +48,7 @@ class Home extends Component {
               <h3>Debbie</h3>
               <p>Thats acroolet threee. We will send him to wathington</p>
             </Col>
-          </Row>
+          </Row> */}
         </Container>
       </div>
     );

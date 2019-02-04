@@ -10,18 +10,19 @@ class Login extends Component {
   constructor() {
     super();
     this.state = {
-      email: '',
-      password: '',
-
+      data: {
+        email: '',
+        password: '',
+      },
       loading: false,
       errors: {},
     };
-  };
+  }
 
   onChange = (e) => {
     this.setState({
-      email: e.target.value;
-    })
+      data: { ...this.state.data, [e.target.name]: e.target.value },
+    });
   }
 
   render() {
@@ -32,8 +33,9 @@ class Login extends Component {
             <Form.Label>Email address</Form.Label>
             <Form.Control
               type="email"
+              name="email"
               placeholder="Enter email"
-              value={this.state.email}
+              value={this.state.data.email}
               onChange={this.onChange}
             />
             <Form.Text className="text-muted">
@@ -43,7 +45,13 @@ class Login extends Component {
 
           <Form.Group controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" />
+            <Form.Control
+              type="password"
+              placeholder="Password"
+              name="password"
+              value={this.state.data.password}
+              onChange={this.onChange}
+            />
           </Form.Group>
           <Form.Group controlId="formBasicChecbox">
             <Form.Check type="checkbox" label="Check me out" />
