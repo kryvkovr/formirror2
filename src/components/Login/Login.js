@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Container, Form, Button, Image } from 'react-bootstrap';
-import { selectPostAction, removePostAction } from '../../actions/simpleAction';
-import { getPostsSelector, getSelectedPostsSelector } from '../../selectors/selectedPosts';
+import { Container, Form, Button, Image, Col, Row } from 'react-bootstrap';
+import Validator from 'validator';
+import InlineError from '../InlineErrors/InlineError';
 
 import './Login.css';
 
@@ -25,40 +25,71 @@ class Login extends Component {
     });
   }
 
+  onSubmit = (e) => {
+    e.preventDefault();
+
+    const errors = this.validate(this.state.data);
+    this.setState({
+      errors,
+    });
+    console.log(errors)
+
+    // if (Object.keys(errors).length === 0) {
+
+    // }
+  }
+
+  validate = (data) => {
+    const errors = {};
+    if (!Validator.isEmail(data.email)) errors.email = 'Invalid email';
+    if (!data.password) errors.password = 'No password';
+    return errors;
+  }
+
   render() {
     return (
       <Container>
-        <Form>
-          <Form.Group controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control
-              type="email"
-              name="email"
-              placeholder="Enter email"
-              value={this.state.data.email}
-              onChange={this.onChange}
-            />
-            <Form.Text className="text-muted">
-              We will never share your email with anyone else.
-            </Form.Text>
-          </Form.Group>
+        <Form onSubmit={this.onSubmit} noValidate>
+          <Form.Row>
+            <Form.Group as={Col} md={{ span: 6, offset: 3 }} controlId="formBasicEmail">
+              <Form.Label>Email address</Form.Label>
+              <Form.Control
+                type="email"
+                name="email"
+                placeholder="Enter email"
+                value={this.state.data.email}
+                onChange={this.onChange}
+                isValid={this.state.data.email && !this.state.errors.email}
+                isInvalid={this.state.errors.email}
+              />
+              {this.state.errors.email && <InlineError text={this.state.errors.email} />}
+            </Form.Group>
+          </Form.Row>
 
-          <Form.Group controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              type="password"
-              placeholder="Password"
-              name="password"
-              value={this.state.data.password}
-              onChange={this.onChange}
-            />
-          </Form.Group>
-          <Form.Group controlId="formBasicChecbox">
-            <Form.Check type="checkbox" label="Check me out" />
-          </Form.Group>
-          <Button variant="primary" type="submit">
-            Submit
-          </Button>
+          <Form.Row>
+            <Form.Group as={Col} md={{ span: 6, offset: 3 }} controlId="formBasicPassword">
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+                type="password"
+                placeholder="Password"
+                name="password"
+                value={this.state.data.password}
+                onChange={this.onChange}
+                isValid={this.state.data.password && !this.state.errors.password}
+                isInvalid={this.state.errors.password}
+              />
+              {this.state.errors.password && <InlineError text={this.state.errors.password} />}
+
+            </Form.Group>
+          </Form.Row>
+
+          <Row>
+            <Col md={{ span: 6, offset: 3 }}>
+              <Button variant="primary" type="submit">
+                Submit
+              </Button>
+            </Col>
+          </Row>
         </Form>
       </Container>
     );
@@ -66,15 +97,4 @@ class Login extends Component {
 }
 
 
-const mapToProps = state => ({
-  allPosts: getPostsSelector(state),
-  selectedPosts: getSelectedPostsSelector(state),
-});
-
-
-const mapDispatchToProps = {
-  selectPostAction,
-  removePostAction,
-};
-
-export default connect(mapToProps, mapDispatchToProps)(Login);
+export default Login;
