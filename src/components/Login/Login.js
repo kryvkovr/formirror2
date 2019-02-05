@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Container, Form, Button, Image, Col, Row } from 'react-bootstrap';
+import PropTypes from 'prop-types';
 import Validator from 'validator';
 import InlineError from '../InlineErrors/InlineError';
-
 import './Login.css';
+import { login } from '../../actions/auth';
+
 
 class Login extends Component {
   constructor() {
@@ -27,16 +29,16 @@ class Login extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-
     const errors = this.validate(this.state.data);
     this.setState({
       errors,
     });
-    console.log(errors)
-
-    // if (Object.keys(errors).length === 0) {
-
-    // }
+    if (!errors.email && !errors.password) {
+      this.props.login(this.state.data)
+        .then(() => {
+          this.props.history.push('/');
+        });
+    }
   }
 
   validate = (data) => {
@@ -79,7 +81,6 @@ class Login extends Component {
                 isInvalid={this.state.errors.password}
               />
               {this.state.errors.password && <InlineError text={this.state.errors.password} />}
-
             </Form.Group>
           </Form.Row>
 
@@ -96,5 +97,15 @@ class Login extends Component {
   }
 }
 
+Login.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
+  login: PropTypes.func.isRequired,
+};
 
-export default Login;
+const mapDispatchToProps = {
+  login,
+};
+
+export default connect(null, mapDispatchToProps)(Login);
