@@ -1,4 +1,4 @@
-import { USER_LOGGED_IN } from '../constant/actionTypes';
+import { USER_LOGGED_IN, USER_LOGGED_OUT } from '../constant/actionTypes';
 
 const initialState = {
   email: '',
@@ -13,6 +13,10 @@ export default (state = initialState, action) => {
         email: action.payload.email,
         token: action.payload.token,
       };
+    case USER_LOGGED_OUT:
+      return {
+        ...initialState,
+      }
     default:
       return state;
   }

@@ -5,8 +5,15 @@ import './index.css';
 import App from './App';
 
 import configureStore, { history } from './store';
+import { userLoggedIn } from './actions/auth';
 
 const store = configureStore();
+
+// check authorization
+if (localStorage.bookwormJWT) {
+  const user = { token: localStorage.bookwormJWT };
+  store.dispatch(userLoggedIn(user));
+}
 
 const render = () => {
   ReactDOM.render(
