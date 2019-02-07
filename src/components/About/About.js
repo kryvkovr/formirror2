@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Container, Row, Col, Image } from 'react-bootstrap';
 import { selectPostAction, removePostAction } from '../../actions/simpleAction';
-import { getPostsSelector, getSelectedPostsSelector } from '../../selectors/selectedPosts';
+import { getPosts, getSelectedPosts } from '../../selectors/selectedPosts';
 
 import './About.css';
 
@@ -46,8 +46,8 @@ class About extends Component {
 
 
 const mapToProps = state => ({
-  allPosts: getPostsSelector(state),
-  selectedPosts: getSelectedPostsSelector(state),
+  allPosts: getPosts(state),
+  selectedPosts: getSelectedPosts(state),
 });
 
 

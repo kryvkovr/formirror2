@@ -1,12 +1,16 @@
 import { createSelector } from 'reselect';
+import { getPostIdFromUrl } from './navigationSelector';
 
-export const getPostsSelector = state => state.postsReducer.posts;
+export const getPosts = state => state.postsReducer.posts;
 
-
-const getSelectedPosts = (posts, selectedIds) => posts.filter(post => selectedIds.indexOf(post.id) > -1);
-
-export const getSelectedPostsSelector = createSelector(
+export const getSelectedPosts = createSelector(
   state => state.postsReducer.posts,
   state => state.selectedPostsReducer.selectedPostsIds,
-  getSelectedPosts,
+  (posts, selectedIds) => posts.filter(post => selectedIds.indexOf(post.id) > -1),
+);
+
+export const getPostFromUrl = createSelector(
+  getPosts,
+  getPostIdFromUrl,
+  (posts, postId) => posts.filter(post => post.id == postId)[0],
 );

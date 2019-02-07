@@ -35,7 +35,7 @@ class Login extends Component {
     });
     if (!errors.email && !errors.password) {
       this.props.login(this.state.data)
-        .then(() => this.props.history.push('/'))
+        .then(() => this.props.history.push('/posts'))
         .catch((err) => {
           const message = err.response.data.errors.global;
           this.setState({
