@@ -9,5 +9,6 @@ export default (history) => combineReducers({
   router: connectRouter(history),
   postsReducer,
   selectedPostsReducer,
+  
 })
 
