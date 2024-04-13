@@ -13,7 +13,7 @@ class About extends Component {
       <Container>
         <Row>
           <Col xs={12} md={{ span: 8, offset: 2 }}>
-            <Image src="assets/person-girl-flat.png" className="about-profile-pic" rounded />
+            <Image src="assets/avatar-1.png" className="about-profile-pic" rounded />
             <h3>Frank THE Tank</h3>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit,

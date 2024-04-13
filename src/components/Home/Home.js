@@ -26,17 +26,17 @@ class Home extends Component {
         {/* main content */}
         <Row>
           <Col xs={12} sm={4} className="person-wrapper">
-            <Image src="assets/person-girl-flat.png" circle className="profile-pic" />
+            <Image src="assets/avatar-1.png" circle className="profile-pic" />
             <h3>Frank</h3>
             <p>Thats acroolet threee. We will send him to wathington</p>
           </Col>
           <Col xs={12} sm={4} className="person-wrapper">
-            <Image src="assets/person-girl-flat.png" circle className="profile-pic" />
+            <Image src="assets/avatar-2.png" circle className="profile-pic" />
             <h3>John</h3>
             <p>Thats acroolet threee. We will send him to wathington</p>
           </Col>
           <Col xs={12} sm={4} className="person-wrapper">
-            <Image src="assets/person-girl-flat.png" circle className="profile-pic" />
+            <Image src="assets/avatar-3.png" circle className="profile-pic" />
             <h3>Debbie</h3>
             <p>Thats acroolet threee. We will send him to wathington</p>
           </Col>
