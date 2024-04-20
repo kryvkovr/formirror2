@@ -14,7 +14,7 @@ class Home extends Component {
         <Row>
           <Col>
             <Jumbotron>
-              <h2> Welcome2</h2>
+              <h2> Welcome3</h2>
               <p>How to buikd site with react router and bootstrap</p>
               <Link to='/about'>
                 <Button >About</Button>
